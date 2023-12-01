@@ -1,0 +1,31 @@
+namespace AleatorioDoWhile
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // PRACTICA BUCLE DO WHILE ADIVINAR NUMERO ALEATORIO CREADO CON RANDOM
+
+            int numero = new Random().Next(1, 10);
+            int numeroint;
+            int count = 0;
+
+            do
+            {
+                count++;
+
+                Console.WriteLine("Introduce un numero del 1 al 10");
+
+                Console.WriteLine("________________________________" + "\n");
+
+                numeroint = int.Parse(Console.ReadLine());
+
+                if (numeroint != numero) Console.WriteLine("¡¡El numero no es correcto!!" + "\n");
+            }
+
+            while (numeroint != numero);
+
+            Console.WriteLine("¡¡Bien, acertaste el número al " + count + "º intento !!" + "\n");
+        }
+    }
+}
