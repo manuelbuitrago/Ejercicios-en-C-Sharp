@@ -1,0 +1,124 @@
+namespace SeleccionAsientosCine
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Crear matriz bidimensional de caracteres de 10x10
+            char[,] matriz = new char[10, 10];
+
+            // Rellenar la matriz con la letra 'L'
+            for (int i = 0; i < matriz.GetLength(0); i++)
+            {
+                for (int j = 0; j < matriz.GetLength(1); j++)
+                {
+                    matriz[i, j] = 'L';
+                }
+            }
+
+            // Mostrar la matriz con L
+            MostrarMatriz(matriz);
+
+            Console.WriteLine();
+
+            ElegirFilayColumna(matriz);
+
+            // Mostrar la matriz con X 
+            Console.WriteLine("Tu asiento ha sido seleccionado" + "\n");
+            MostrarMatriz(matriz);
+
+            String siono;
+            do
+            {
+
+                Console.WriteLine("Quieres elegir otro? si o no?");
+                siono = Console.ReadLine();
+
+                if (siono == "no") break;
+
+                ElegirFilayColumna(matriz);
+                Console.WriteLine("Tu asiento ha sido seleccionado" + "\n");
+                MostrarMatriz(matriz);
+
+            }
+            while (siono == "si");
+
+        }
+
+        private static void MostrarMatriz(char[,] matriz)
+        {
+            Console.WriteLine("Asientos libres marcados con L y ocupados con X");
+            for (int i = 0; i < matriz.GetLength(0); i++)
+            {
+                for (int j = 0; j < matriz.GetLength(1); j++)
+                {
+                    Console.Write(matriz[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        private static void ElegirFilayColumna(char[,] matriz)
+        {
+            int elijeColumna;
+            int elijeFila;           
+            
+            Console.WriteLine("Selecciona la columna de la 1 a la 10" + "\n");
+            elijeColumna = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Selecciona la fila de la 1 a la 10" + "\n");
+            elijeFila = int.Parse(Console.ReadLine());
+
+
+            switch (elijeFila & elijeColumna)
+            {
+                case 1:
+                    elijeFila = 0;
+                    elijeColumna = 0;
+                    break;
+                case 2:
+                    elijeFila = 1;
+                    elijeColumna = 1;
+                    break;
+                case 3:
+                    elijeFila = 2;
+                    elijeColumna = 2;
+                    break;
+                case 4:
+                    elijeFila = 3;
+                    elijeColumna = 3;
+                    break;
+                case 5:
+                    elijeFila = 4;
+                    elijeColumna = 4;
+                    break;
+                case 6:
+                    elijeFila = 5;
+                    elijeColumna = 5;
+                    break;
+                case 7:
+                    elijeFila = 6;
+                    elijeColumna = 6;
+                    break;
+                case 8:
+                    elijeFila = 7;
+                    elijeColumna = 7;
+                    break;
+                case 9:
+                    elijeFila = 8;
+                    elijeColumna = 8;
+                    break;
+                case 10:
+                    elijeFila = 9;
+                    elijeColumna = 9;
+                    break;
+                default:
+                    Console.WriteLine("ERROR, NO EXISTE ESA FILA O COLUMNA");  
+                    break;
+                    
+            }
+
+            matriz[elijeFila, elijeColumna] = 'X';
+        }
+    }
+}
