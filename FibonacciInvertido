@@ -1,0 +1,31 @@
+            int[] miSecuencia = new int[12];
+            miSecuencia[0] = 0;
+            miSecuencia[1] = 1;
+
+            for (int i = 2; i < miSecuencia.Length; i++)
+            {
+                miSecuencia[i] = miSecuencia[i - 1] + miSecuencia[i - 2];
+
+            }
+
+            Console.WriteLine("imprimimos la secuencia"); 
+            for (int i = 0; i < miSecuencia.Length; i++)
+            {
+                Console.Write(miSecuencia[i] + " ");
+            }
+
+            Console.WriteLine();
+
+            // Invertimos la secuencia
+            for (int i = 0; i < miSecuencia.Length / 2; i++)
+            {
+                int temp = miSecuencia[i];
+                miSecuencia[i] = miSecuencia[miSecuencia.Length - 1 - i];
+                miSecuencia[miSecuencia.Length - 1 - i] = temp;
+
+            }
+            Console.WriteLine("imprimimos la secuencia invertida");
+            for (int i = 0; i < miSecuencia.Length; i++)
+            {
+                Console.Write(miSecuencia[i] + " ");
+            }
